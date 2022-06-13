@@ -1,3 +1,7 @@
+*{
+  margin: 0;
+  padding: 0;
+}
 .App {
   text-align: center;
 }
@@ -35,4 +39,69 @@
   to {
     transform: rotate(360deg);
   }
+}
+nav{
+  border-bottom: 1px solid black;
+}
+.nav-link {
+  text-decoration: none;
+  position: relative;
+}
+.nav-link:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  border-bottom: 2px solid #282c34;
+  transition: 0.4s;
+}
+.nav-link:hover:after {
+  width: 100%;
+}
+.logo{
+    width: 80px;
+}
+.slide{
+  height: 60vh;
+  border-bottom: 1px solid black;
+}
+.img{
+  height: 60vh; 
+}
+
+
+/* FACILITIES FILE STYLING */
+.facilities{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.card{
+  width: 16rem;
+  margin: 50px 20px;
+  box-shadow: 1px;
+  border-radius: 29px;
+  transition:  0.7s ease-in-out;
+  /* border: 1px solid rgb(154, 215, 62); */
+  /* border: 1px solid #198754; */
+}
+.card:hover{
+  transform: scale(1.1);
+}
+.card i{
+  margin: 25px 0px 0px 35px;
+  font-size: 50px;
+  color: rgb(152, 191, 69);
+  /* color: #198754; */
+}
+@media screen and (max-width: 991px) {
+ .facilities{
+   flex-direction: column;
+   align-items: center;
+ }
+ .card{
+   width: 24rem;
+   margin: 25px 20px;
+ }
 }
