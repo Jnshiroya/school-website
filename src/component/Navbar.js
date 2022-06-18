@@ -5,7 +5,6 @@ import logo from './GurukrupaLogo.png'
 
 const Navbar = (props) => {
     let navigate = useNavigate();
-    console.log(props);
     const handlelogout = () => {
         localStorage.removeItem('token');
         localStorage.removeItem('type');
@@ -45,7 +44,7 @@ const Navbar = (props) => {
                                     </Link>
                                     <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <li><Link className="dropdown-item" to="/addstudent">STUDENT</Link></li>
-                                        <li><Link className="dropdown-item" to="/">STAFF</Link></li>
+                                        <li><Link className="dropdown-item" to="/addstaff">STAFF</Link></li>
                                     </ul>
                                 </li>:""
                                 

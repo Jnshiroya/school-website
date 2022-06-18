@@ -1,9 +1,10 @@
 import React,{useState} from 'react'
-import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
+
 
 
 const AddStudent = (props) => {
-    const navigate=useNavigate()
+   
     const [student, setstudent] = useState({ uname:"",email: "",class:"",addmission_year:"",rollno:"", password: "" })
   const onchange = (e) => {
     setstudent({ ...student, [e.target.name]: e.target.value })
@@ -20,9 +21,17 @@ const AddStudent = (props) => {
     });
     const json = await response.json();
     if (json.success) {    
+      //SEND EMAIL
+      await axios.post("http://localhost:5000/api/mail/users",student).then((res) => {
+        props.showalert('success', 'Add Student Successfully..');
+        console.log(res);
+      }).catch((err) => {
+         console.log(err);
+      });
+      
+      
+      
       setstudent({ uname:"",email: "",class:"",addmission_year:"",rollno:"", password: "" });
-      navigate('/addstudent');
-      props.showalert('success', 'Add Student Successfully..');
 
     } else {
       props.showalert('danger', 'Invalid Email Or Password Detail!');

@@ -20,6 +20,10 @@ const StaffSchema = new Schema({
         type: String,
         required: true
     },
+    joining_year:{
+        type:Number,
+        required:true
+    },
     class: {
         type: String
     },

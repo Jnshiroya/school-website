@@ -32,7 +32,7 @@ router.post('/createstudent', [
         
         const salt = await bcrypt.genSalt(10);
 
-        secpass = await bcrypt.hash(req.body.password, salt);
+        const secpass = await bcrypt.hash(req.body.password, salt);
         student = await Student.create({
             uname: req.body.uname,
             password: secpass,
